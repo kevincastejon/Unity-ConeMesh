@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace KevinCastejon.EditorToolbox
+namespace KevinCastejon.Cone
 {
     [CustomEditor(typeof(Cone))]
     public class ConeEditor : Editor
@@ -35,7 +35,7 @@ namespace KevinCastejon.EditorToolbox
             _script = (Cone)target;
             if (!_script.IsConeGenerated)
             {
-                _script.MakeCone();
+                _script.GenerateCone();
             }
         }
 
@@ -57,8 +57,24 @@ namespace KevinCastejon.EditorToolbox
             serializedObject.ApplyModifiedProperties();
             if (changed)
             {
-                _script.MakeCone();
+                _script.GenerateCone();
             }
+        }
+        // Add a menu item to create custom GameObjects.
+        // Priority 1 ensures it is grouped with the other menu items of the same kind
+        // and propagated to the hierarchy dropdown and hierarchy context menus.
+        [MenuItem("GameObject/3D Object/Cone", false, 10)]
+        static void CreateCustomGameObject(MenuCommand menuCommand)
+        {
+            // Create a custom game object
+            GameObject go = new GameObject("Cone");
+            // Add Cone component
+            go.AddComponent<Cone>().Material = new Material(Shader.Find("Unlit/Color"));
+            // Ensure it gets reparented if this was a context click (otherwise does nothing)
+            GameObjectUtility.SetParentAndAlign(go, menuCommand.context as GameObject);
+            // Register the creation in the undo system
+            Undo.RegisterCreatedObjectUndo(go, "Create " + go.name);
+            Selection.activeObject = go;
         }
     }
 }

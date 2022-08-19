@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace KevinCastejon.EditorToolbox
+namespace KevinCastejon.Cone
 {
     public enum ConeOrientation
     {
@@ -43,12 +43,12 @@ namespace KevinCastejon.EditorToolbox
         private MeshRenderer _meshRenderer;
         private MeshCollider _meshCollider;
 
-        public bool PivotAtTop { get => _pivotAtTop; set { _pivotAtTop = value; MakeCone(); } }
+        public bool PivotAtTop { get => _pivotAtTop; set { _pivotAtTop = value; GenerateCone(); } }
         public Material Material { get => _material; set { _material = value; _meshRenderer = _meshRenderer ? _meshRenderer : gameObject.GetComponent<MeshRenderer>(); _meshRenderer.material = _material; } }
-        public int ConeSubdivisions { get => _coneSides; set { _coneSides = value; MakeCone(); } }
-        public float ConeRadius { get => _coneRadius; set { _coneRadius = value; MakeCone(); } }
-        public float ConeHeight { get => _coneHeight; set { _coneHeight = value; MakeCone(); } }
-        public ConeOrientation Orientation { get => _orientation; set { _orientation = value; MakeCone(); } }
+        public int ConeSubdivisions { get => _coneSides; set { _coneSides = value; GenerateCone(); } }
+        public float ConeRadius { get => _coneRadius; set { _coneRadius = value; GenerateCone(); } }
+        public float ConeHeight { get => _coneHeight; set { _coneHeight = value; GenerateCone(); } }
+        public ConeOrientation Orientation { get => _orientation; set { _orientation = value; GenerateCone(); } }
         public bool IsConeGenerated { get => _coneMesh != null; }
         public bool IsTrigger
         {
@@ -62,9 +62,9 @@ namespace KevinCastejon.EditorToolbox
                 _meshCollider.isTrigger = value;
             }
         }
-        public bool ProportionalRadius { get => _proportionalRadius; set { _proportionalRadius = value; MakeCone(); } }
+        public bool ProportionalRadius { get => _proportionalRadius; set { _proportionalRadius = value; GenerateCone(); } }
 
-        public void MakeCone()
+        internal void GenerateCone()
         {
             _coneMesh = CreateConeMesh(_coneSides + 1, _coneRadius, _coneHeight, _pivotAtTop, _orientation, _invertDirection, _proportionalRadius);
             _meshFilter = _meshFilter ? _meshFilter : gameObject.GetComponent<MeshFilter>();
@@ -80,7 +80,7 @@ namespace KevinCastejon.EditorToolbox
             _meshCollider.isTrigger = _isTrigger;
         }
 
-        public static Mesh CreateConeMesh(int subdivisions, float radius, float height, bool pivotAtTop, ConeOrientation orientation, bool invertDirection, bool proportionalRadius)
+        private static Mesh CreateConeMesh(int subdivisions, float radius, float height, bool pivotAtTop, ConeOrientation orientation, bool invertDirection, bool proportionalRadius)
         {
             if (proportionalRadius)
             {
@@ -169,13 +169,6 @@ namespace KevinCastejon.EditorToolbox
             mesh.RecalculateNormals();
 
             return mesh;
-        }
-        private static Vector3 RotatePointAroundPivot(Vector3 point, Vector3 pivot, Vector3 angles)
-        {
-            Vector3 dir = point - pivot; // get point direction relative to pivot
-            dir = Quaternion.Euler(angles) * dir; // rotate it
-            point = dir + pivot; // calculate rotated point
-            return point; // return it
         }
     }
 }
