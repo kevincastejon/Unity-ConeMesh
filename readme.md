@@ -7,4 +7,5 @@ Generate a cone mesh, renderer and collider, on the fly.
 Create a cone by using the create menu then selecting **3D Object > Cone**.
 Set desired parameters into the inspector.
 
+![CreateMenu](https://kevincastejon.github.io/Unity-Cone/Assets/KevinCastejon/Cone/Documentation/CreateMenu.png)
 ![Preview](https://kevincastejon.github.io/Unity-Cone/Assets/KevinCastejon/Cone/Documentation/preview.png)
