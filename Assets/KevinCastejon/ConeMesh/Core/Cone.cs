@@ -18,9 +18,9 @@ namespace KevinCastejon.Cone
     public class Cone : MonoBehaviour
     {
         [SerializeField]
-        private bool _pivotAtTop;
+        private bool _pivotAtTop = true;
         [SerializeField]
-        private ConeOrientation _orientation;
+        private ConeOrientation _orientation = ConeOrientation.Z;
         [SerializeField]
         private bool _invertDirection;
         [SerializeField]

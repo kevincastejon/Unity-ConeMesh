@@ -69,7 +69,9 @@ namespace KevinCastejon.Cone
             // Create a custom game object
             GameObject go = new GameObject("Cone");
             // Add Cone component
-            go.AddComponent<Cone>().Material = new Material(Shader.Find("Unlit/Color"));
+            Cone cone = go.AddComponent<Cone>();
+            // Set default lit material
+            cone.Material = new Material(Shader.Find("Unlit/Color"));
             // Ensure it gets reparented if this was a context click (otherwise does nothing)
             GameObjectUtility.SetParentAndAlign(go, menuCommand.context as GameObject);
             // Register the creation in the undo system
