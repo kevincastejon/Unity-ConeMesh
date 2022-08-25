@@ -1,3 +1,3 @@
 using System.Runtime.CompilerServices;
-[assembly: InternalsVisibleTo("ConeEditorAssembly")]
-namespace KevinCastejon.Cone { }
+[assembly: InternalsVisibleTo("ConeMeshEditorAssembly")]
+namespace KevinCastejon.ConeMesh { }

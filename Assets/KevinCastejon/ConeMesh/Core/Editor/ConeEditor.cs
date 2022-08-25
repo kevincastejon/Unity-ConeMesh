@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace KevinCastejon.Cone
+namespace KevinCastejon.ConeMesh
 {
     [CustomEditor(typeof(Cone))]
     public class ConeEditor : Editor

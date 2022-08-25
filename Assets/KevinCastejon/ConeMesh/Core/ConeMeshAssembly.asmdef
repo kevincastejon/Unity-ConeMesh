@@ -1,12 +1,8 @@
 {
-    "name": "ConeEditorAssembly",
+    "name": "ConeMeshAssembly",
     "rootNamespace": "",
-    "references": [
-        "GUID:1eaa79df54abda04295ca027d7ba718f"
-    ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "references": [],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
