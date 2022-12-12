@@ -1,11 +1,15 @@
 # Cone
-Generate a cone mesh, renderer and collider, on the fly.
+Generate a **cone** mesh, renderer and collider, **on the fly**.
+
+Be able to use a **Cone**, that is missing into the native **Unity's primitives**.
+
+Use the regular **create** menu and select **3D Object > Cone**, then customize the cone with the **Inspector** parameters.
 
 ***Using another shader than unlit give weird behavior with some parameters configuration. Hopefully a fix will come later.***
 
 [Get it on the AssetStore](https://assetstore.unity.com/packages/tools/utilities/cone-mesh-229842)
 
-[Get the Unity package](https://github.com/kevincastejon/Unity-ConeMesh/releases/tag/v1.0)
+[Get the Unity package](https://github.com/kevincastejon/Unity-ConeMesh/releases/latest)
 
 ![Tuto1](https://kevincastejon.github.io/Unity-ConeMesh/Assets/KevinCastejon/ConeMesh/Documentation/Tuto1.png)
 ![Tuto2](https://kevincastejon.github.io/Unity-ConeMesh/Assets/KevinCastejon/ConeMesh/Documentation/Tuto2.png)
