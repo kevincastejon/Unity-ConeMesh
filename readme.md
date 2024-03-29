@@ -1,7 +1,7 @@
 # Cone
 
 ## WARNING : this package is not fully-functionnal, has issues, and should not be used in production ! Unfortunately I got no time to fix it right now...
-Feel free to submit pull request though
+## Feel free to submit pull request though
 
 Generate a **cone** mesh, renderer and collider, **on the fly**.
 
